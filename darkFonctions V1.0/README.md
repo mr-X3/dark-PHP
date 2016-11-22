@@ -1,31 +1,31 @@
 <?php 
 
-//Jolie petit reCeuill de fonctions graves utils pour develloppeurs
+  //Jolie petit reCeuill de fonctions graves utils pour develloppeurs
 
 
-/*Systeme de Protection d'attaques de Jebiss (S.A.I)*/
+  /*Systeme de Protection d'attaques de Jebiss (S.A.I)*/
 
-//faux way de remplacement
-
-
-//Pour reduire untexte afin d'avoir une dimension precise et des ... a la fin
+  //faux way de remplacement
 
 
-//Pour avoir un joli format de prix
+  //Pour reduire untexte afin d'avoir une dimension precise et des ... a la fin
 
 
-/*encodage et desencodage de l'URL*/
+  //Pour avoir un joli format de prix
 
 
-//Connaitre le temps d'execution d'une page
+  /*encodage et desencodage de l'URL*/
 
 
-//Hashing non bijective en MD5 et SHA1
+  //Connaitre le temps d'execution d'une page
 
 
-//fonction de cryptage et decryptage tout bete
+  //Hashing non bijective en MD5 et SHA1
 
 
-// fonction pour eliminer dans une chaine de caractere, les ways superflus
+  //fonction de cryptage et decryptage tout bete
+
+
+  // fonction pour eliminer dans une chaine de caractere, les ways superflus
 
 ?>
