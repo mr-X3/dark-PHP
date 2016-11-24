@@ -1,12 +1,13 @@
 <?php 
 
-/*Dark est une librairie de manipulation des actions sur base de donnees
-//Librairie Creer par Sanix le 18/10/2016 vers 01h 41,
-//....C'est fou q j'ai sommeil mais j'adore Coder
-//Cette Librarie a ete creer pour alleger le work des manipulations avec la base de donnees en PHP
-//Cette librarie est purement OPEN SOURCE, vous pourrez donc faire toutes vos modifs et utiliser comme bon vous semble*/
+/*	Dark est une librairie de manipulation des actions sur base de donnees
+*	Librairie Creer par Sanix le 18/10/2016 vers 01h 41,
+*	....C'est fou q j'ai sommeil mais j'adore Coder
+*	Cette Librarie a ete creer pour alleger le work des manipulations avec la base de donnees en PHP
+*	Cette librarie est purement OPEN SOURCE, vous pourrez donc faire toutes vos modifs et utiliser comme bon vous semble
+*/
 
-/* Dark PHP VERSION 2 **********************************************************************************************************/
+/* ***********************************************Dark PHP VERSION 2***********************************************************/
 
 class darkDB {
 	//J'ai mon joli constructeur
@@ -27,16 +28,16 @@ class darkDB {
 	}
 
 	//Pour une simple rekette
-	function reket($reket){
+	public void reket($reket){
 		$this->darkDB->query($reket);
 	}
 	//Version mini
-	function r($reket){
+	public void r($reket){
 		$this->darkDB->query($reket);
 	}
 	
 	//Faire une RECHERCHE dans la base de donnees avec le mot et la table ki retourne le tablo 
-	function fouille($table,$element_entree,$champ,$critere){
+	public function fouille($table,$element_entree,$champ,$critere){
 		$req = 'SELECT * FROM '.$table.' WHERE ';
 		$mots = explode(' ',$element);
 			foreach($mots as $mot){
@@ -52,7 +53,7 @@ class darkDB {
 		}
 	}
 	//Version mini
-	function f($table,$element_entree,$champ,$critere){
+	public function f($table,$element_entree,$champ,$critere){
 		$req = 'SELECT * FROM '.$table.' WHERE ';
 		$mots = explode(' ',$element);
 			foreach($mots as $mot){
@@ -70,7 +71,7 @@ class darkDB {
 	
 	
 	//Retourne le dernier element ki a ete enregistrer dans une table d'une Table
-	function derniereLigne($tableName,$ID){
+	public function derniereLigne($tableName,$ID){
 		$sql = "SELECT * FROM ".$tableName." ORDER BY ".$ID." DESC LIMIT 1";
 		$query = $this->darkDB->query($sql);
 		$result = $query->fetch_assoc();
@@ -81,7 +82,7 @@ class darkDB {
 		}
 	}
 	//Version mini
-	function dL($tableName,$ID){
+	public function dL($tableName,$ID){
 		$sql = "SELECT * FROM ".$tableName." ORDER BY ".$ID." DESC LIMIT 1";
 		$query = $this->darkDB->query($sql);
 		$result = $query->fetch_assoc();
@@ -94,7 +95,7 @@ class darkDB {
 	
 	
 	//Calcul le total dans une table(pas besoin d'ecrire une requete) en plus avec un critere de selection facultatif(EX WHERE ID=23)
-	function total($tableName,$critere){
+	public function total($tableName,$critere){
 		if(!isset($critere))
 			$critere="";
 		$sql = "SELECT COUNT(*) FROM ".$tableName." ".$critere;
@@ -107,7 +108,7 @@ class darkDB {
 		}
 	}
 	//Version mini
-	function t($tableName,$critere){
+	public function t($tableName,$critere){
 		if(!isset($critere))
 			$critere="";
 		$sql = "SELECT COUNT(*) FROM ".$tableName$critere;
@@ -123,7 +124,7 @@ class darkDB {
 	
 	
 	//Pour inserer dans une base de donnees
-	function insert($tablo_noms_champs,$tablo_valeurs_champs){
+	public function insert($tablo_noms_champs,$tablo_valeurs_champs){
 		$sql = "INSERT INTO ".$tableName." (".$tablo_noms_champs.") VALUES('".$tablo_valeurs_champs."')";
 		if($this->darkDB->query($sql)){
 			return $this->darkDB->insert_id;
@@ -132,7 +133,7 @@ class darkDB {
 		}
 	}
 	//Version mini
-	function i($tablo_noms_champs,$tablo_valeurs_champs){
+	public function i($tablo_noms_champs,$tablo_valeurs_champs){
 		$sql = "INSERT INTO ".$tableName." (".$tablo_noms_champs.") VALUES('".$tablo_valeurs_champs."')";
 		if($this->darkDB->query($sql)){
 			return $this->darkDB->insert_id;
@@ -143,13 +144,13 @@ class darkDB {
 	
 	
 	//Pour modifier un champ dans une base donnees
-	function update($tableName,$champ,$valeur,$critere){
+	public function update($tableName,$champ,$valeur,$critere){
 		$sql = "UPDATE ".$tableName." SET ".$champ." = '".$valeur."' ".$critere;
 		$this->darkDB->query($sql);
 		return true;
 	}
 	//version mini
-	function u($tableName,$champ,$valeur,$critere){
+	public function u($tableName,$champ,$valeur,$critere){
 		$sql = "UPDATE ".$tableName." SET ".$champ." = '".$valeur."' ".$critere;
 		$this->darkDB->query($sql);
 		return true;
@@ -157,13 +158,13 @@ class darkDB {
 	
 	
 	//Pour supprimer un champ dans une base donnees
-	function delete($tableName,$critere){
+	public function delete($tableName,$critere){
 		$sql = "UPDATE ".$tableName." SET ".$champ." = '".$valeur."' ".$critere;
 		$this->darkDB->query($sql);
 		return true;
 	}
 	//version mini
-	function d($tableName,$critere){
+	public function d($tableName,$critere){
 		$sql = "DELETE FROM ".$tableName." ".$critere;
 		$this->darkDB->query($sql);
 		return true;
