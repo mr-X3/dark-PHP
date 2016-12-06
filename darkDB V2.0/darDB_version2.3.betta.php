@@ -1,6 +1,7 @@
 <?php 
 
-/*	Dark est une librairie de manipulation des actions sur base de donnees
+/*	Salut les codeur, g passe en 2.3, j'ai fais 2 3 modifs kan mm dangereuses mais pluto utiles
+*	Dark est une librairie de manipulation des actions sur base de donnees
 *	Librairie Creer par Sanix le 18/10/2016 vers 01h 41,
 *	....C'est fou q j'ai sommeil mais j'adore Coder
 *	Cette Librarie a ete creer pour alleger le work des manipulations avec la base de donnees en PHP
@@ -121,7 +122,28 @@ class darkDB {
 		}
 	}
 	
-	
+	//Retourne les elements similaires entre plusieurs table dernier element ki a ete enregistrer dans une table d'une Table
+	public function simil_table_jointures($tableName,$tableName2){
+		$sql = "SELECT * FROM ".$tableName." ORDER BY ".$ID." DESC LIMIT 1";
+		$query = $this->darkDB->query($sql);
+		$result = $query->fetch_assoc();
+		if($result){
+			return $result;
+		}else{
+			return false;
+		}
+	}
+	//Version mini
+	public function stj($tableName,$tableName2){
+		$sql = "SELECT * FROM ".$tableName." ORDER BY ".$ID." DESC LIMIT 1";
+		$query = $this->darkDB->query($sql);
+		$result = $query->fetch_assoc();
+		if($result){
+			return $result;
+		}else{
+			return false;
+		}
+	}
 	
 	//Pour inserer dans une base de donnees
 	public function insert($tablo_noms_champs,$tablo_valeurs_champs){
